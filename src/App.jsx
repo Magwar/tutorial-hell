@@ -1,15 +1,16 @@
-import './App.css'
-import Navbar from './components/Navbar'
+import "./App.css";
+import Navbar from "./components/Navbar";
 
-function App() {
-
+const App = () => {
+  const navLinks = ["Home", "About", "Work", "Contact"];
   return (
     <>
-      <Navbar />
+      <Navbar logo="WM" links={navLinks} />
       <main></main>
-      <footer></footer>
+      <footer>
+      </footer>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
