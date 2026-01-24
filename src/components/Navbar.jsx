@@ -1,22 +1,27 @@
-import {useState} from 'react';
+import NavLink from "./NavLink";
 
-const Navbar = ({ logo, links }) => {
-    const [active, setActive] = useState(links[0]);
-
+const Navbar = ({ logo, links, active, setActive }) => {
   return (
     <nav className="flex justify-between items-center p-6 max-w-7xl mx-auto">
-      <h1 className="text-3xl font-bold">{logo}</h1>
+      <h1 className="text-3xl font-bold">
+        <a href="#home" onClick={() => setActive("home")}>
+          {logo}
+        </a>
+      </h1>
 
       <ul className="flex gap-8 text-lg">
-        {links.map((link) => (
-          <li key={link}>
-            <a href={`#${link.toLowerCase()}`}
-            onClick={()=>setActive(link)}
-            className={`hover:text-gray-500 ${active === link ? 'font-bold underline' : ''}`}>
-              {link}
-            </a>
-          </li>
-        ))}
+        {links.map((link) => {
+          const id = link.toLowerCase();
+
+          return (
+            <NavLink
+              key={link}
+              link={link}
+              isActive={active === id}
+              onClick={() => setActive(id)}
+            />
+          );
+        })}
       </ul>
     </nav>
   );
