@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white border-b">
+      <header className="sticky top-0 z-50 bg-white border-alpha-50 shadow-sm">
         <Navbar
           logo="MW"
           links={navLinks}
@@ -27,6 +27,8 @@ function App() {
         <Work />
         <Contact />
       </main>
+
+      <footer></footer>
     </>
   );
 }
